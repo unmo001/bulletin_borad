@@ -1,0 +1,19 @@
+<form method="get">
+    <input type="text" value="{{ request.GET.query }}" name="query">
+    <button type="submit">
+        検索する
+    </button>
+
+</form>
+<a href="{% url 'post:form' %}">投稿する</a>
+<div>
+    {% for post in post_list %}
+        <a href="{% url 'post:detail' user.id %}">ユーザー名: {{ post.user.username }}<br></a>
+       投稿: {{ post.text }}<br>
+        投稿日時: {{ post.published_at }}<br>
+        <a href="{% url 'post:update' post.id %}">投稿を編集する</a>
+        <hr>
+    {% endfor %}
+
+
+</div>

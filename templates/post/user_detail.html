@@ -1,0 +1,11 @@
+<h1>ユーザー詳細ビューです。</h1>
+{{ user.usename }}
+<p>{{ post.user.username }}</p>
+
+<p>これまでの投稿一覧</p>
+{% for text in texts %}
+{{ text }}
+    {{ text.published_at }}<br>
+    <hr>
+{% endfor %}
+<a href="{% url 'post:index' %}">戻る</a>
